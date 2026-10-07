@@ -2,7 +2,6 @@ import Image from "next/image";
 import Link from "next/link";
 
 export default function WhatsAppButton() {
-  // Número de teléfono de ejemplo y mensaje predeterminado (cámbialo por el de tu cliente)
   const phoneNumber = "584144319572";
   const message = encodeURIComponent(
     "¡Hola! Me gustaría obtener más información sobre sus servicios.",
@@ -23,7 +22,6 @@ export default function WhatsAppButton() {
           alt="WhatsApp Chat"
           width={100}
           height={100}
-          /* 50x50 en móviles (w-[50px] h-[50px]) y 100x100 de md/lg en adelante (md:w-[100px] md:h-[100px]) */
           className="w-[50px] h-[50px] md:w-[100px] md:h-[100px] object-contain"
           priority
         />

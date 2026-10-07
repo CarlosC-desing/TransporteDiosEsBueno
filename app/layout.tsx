@@ -64,7 +64,7 @@ export default function RootLayout({
         <SmoothScroll>
           <Navbar />
           {/* pt-28 o pt-32 asegura que el contenido no quede debajo del navbar fijo */}
-          <main className="pt-28 md:pt-32 px-7 md:px-12">{children}</main>
+          <main className="pt-28 md:pt-32">{children}</main>
           <WhatsAppButton />
         </SmoothScroll>
       </body>

@@ -1,16 +1,16 @@
 import Image from "next/image";
 import Link from "next/link";
+import ServicesSlider from "@/components/ServicesSliders";
+import DocumentacionScroll from "@/components/DocumentationScroll";
+import BentoGallery from "@/components/BentoGallery";
+import CotizaForm from "@/components/QuoteForm";
 
 export default function Home() {
   return (
     <div className="flex flex-col gap-30 md:gap-50">
-      {/* --- SECCIÓN HERO PRINCIPAL --- */}
-      <section className="w-full min-h-[75vh] flex flex-col justify-center items-center pt-20 pb-12 gap-20 overflow-hidden">
-        {/* Contenedor maestro general: Centrado en pantallas grandes y distribuido con Flexbox */}
+      <section className="w-full min-h-[75vh] flex flex-col justify-center items-center pt-20 pb-12 gap-20 overflow-hidden px-7 md:px-12">
         <div className="w-full max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 flex flex-col lg:flex-row items-center lg:items-center justify-between">
-          {/* --- BLOQUE IZQUIERDO (SVG + Botón de Cotización con Flexbox limpio) --- */}
           <div className="w-full lg:w-1/2 flex flex-col items-center lg:items-start gap-10 z-20 space-y-6">
-            {/* LOGO / TÍTULO EN SVG (100% responsivo y nítido) */}
             <div className="w-full max-w-[340px] sm:max-w-[420px] lg:max-w-[500px] self-center">
               <Image
                 src="/transport_god_is_good.svg"
@@ -22,7 +22,6 @@ export default function Home() {
               />
             </div>
 
-            {/* BOTÓN ¡COTIZA AHORA! (Ubicado fluidamente debajo del SVG gracias a space-y-6) */}
             <div className="self-center">
               <Link
                 href="/contacto"
@@ -35,9 +34,7 @@ export default function Home() {
             </div>
           </div>
 
-          {/* --- IMAGEN DEL CAMIÓN (Visible ÚNICAMENTE de lg/desktop en adelante, integrada por flujo Flexbox) --- */}
           <div className="hidden lg:block relative w-full lg:w-[55%] h-[420px] lg:h-[500px] overflow-hidden z-10">
-            {/* Degradado lateral para fundir la imagen con la sección oscura */}
             <div className="absolute inset-y-0 left-0 w-48 bg-gradient-to-r from-[#0a0a0a] via-[#0a0a0a]/70 to-transparent z-20 pointer-events-none" />
 
             <Image
@@ -56,7 +53,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="flex justify-center">
+      <section className="flex justify-center px-7 md:px-12">
         <div className="flex flex-col gap-20 lg:w-1/2 lg:justify-center">
           <h2 className="text-5xl lg:text-7xl font-bebas m-0">
             <span>Sobre</span>
@@ -75,8 +72,8 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="flex justify-center">
-        <div className="flex flex-col gap-20 lg:w-1/2 lg:justify-center">
+      <section className="flex flex-col gap-10 lg:gap-20 px-7 md:px-12">
+        <div className="flex xl:pl-85">
           <h2 className="text-4xl lg:text-7xl font-bebas m-0">
             <span>Servicios</span>
             <br />
@@ -85,10 +82,13 @@ export default function Home() {
             </span>
           </h2>
         </div>
+        <div>
+          <ServicesSlider />
+        </div>
       </section>
 
-      <section className="flex justify-center">
-        <div className="flex flex-col gap-20 lg:w-1/2 lg:justify-center">
+      <section className="flex flex-col gap-10 lg:gap-20 px-7 md:px-12">
+        <div className="flex xl:pl-85">
           <h2 className="text-4xl lg:text-7xl font-bebas m-0">
             <span>Nuestro</span>
             <br />
@@ -97,19 +97,62 @@ export default function Home() {
             </span>
           </h2>
         </div>
+        <div>
+          <DocumentacionScroll />
+        </div>
       </section>
 
-      <section className="flex justify-center">
-        <div className="flex flex-col gap-20 lg:w-1/2 lg:justify-center">
-          <h2 className="text-3xl lg:text-7xl font-bebas m-0">
+      <section className="flex flex-col gap-10 lg:gap-20 px-7 md:px-12">
+        <div className="flex xl:pl-85">
+          <h2 className="text-4xl lg:text-7xl font-bebas m-0">
             <span>Flotas</span>
             <br />
-            <span className="text-3xl lg:text-9xl border-b-4 border-white text-green">
+            <span className="text-5xl lg:text-8xl border-b-4 border-white text-green">
               Seguras y en buen estado
             </span>
           </h2>
         </div>
+        <div>
+          <BentoGallery />
+        </div>
       </section>
+
+      <section className="px-7 md:px-12">
+        <CotizaForm />
+      </section>
+
+      <footer className="bg-forest-dark h-min-400px px-3 py-10 md:px-12">
+        <p>Dios es bueno</p>
+        <div className="flex flex-col md:flex-row gap-5">
+          <div>
+            <p>Contacto</p>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea rerum
+              incidunt magni impedit dignissimos perferendis, error ex neque
+              voluptatem sapiente. In possimus optio id magnam tempore molestias
+              esse eveniet aperiam!
+            </p>
+          </div>
+          <div>
+            <p>Contacto</p>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea rerum
+              incidunt magni impedit dignissimos perferendis, error ex neque
+              voluptatem sapiente. In possimus optio id magnam tempore molestias
+              esse eveniet aperiam!
+            </p>
+          </div>
+          <div>
+            <p>Contacto</p>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea rerum
+              incidunt magni impedit dignissimos perferendis, error ex neque
+              voluptatem sapiente. In possimus optio id magnam tempore molestias
+              esse eveniet aperiam!
+            </p>
+          </div>
+        </div>
+      </footer>
     </div>
   );
 }
