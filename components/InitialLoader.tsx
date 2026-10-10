@@ -35,7 +35,7 @@ export default function InitialLoader() {
             {/* Logo de la empresa animado */}
             <div className="relative w-48 sm:w-64 h-20 sm:h-24">
               <Image
-                src="/logo.png"
+                src="/Logo.png"
                 alt="Transportes Dios Es Bueno"
                 fill
                 sizes="(max-width: 640px) 192px, 256px"
