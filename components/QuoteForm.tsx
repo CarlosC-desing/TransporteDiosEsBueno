@@ -3,22 +3,60 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { Mail } from "lucide-react";
+import { toast } from "sonner";
 
-export default function CotizaForm() {
+export default function QuoteForm() {
   const [form, setForm] = useState({
     nombre: "",
     tlf: "",
     email: "",
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    // Lógica para enviar el formulario
-    console.log("Datos de cotización:", form);
+    setIsSubmitting(true);
+
+    try {
+      const response = await fetch("/api/send", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(form),
+      });
+      const result: { error?: string } = await response.json();
+
+      if (!response.ok) {
+        throw new Error(result.error ?? "No se pudo enviar la cotización.");
+      }
+
+      // Toast de éxito personalizado con colores de la app
+      toast.success("¡Cotización enviada!", {
+        description: "Hemos recibido tu solicitud. Te contactaremos pronto.",
+        duration: 5000,
+        style: {
+          background: "#133D35",
+          color: "#ffffff",
+          border: "1px solid #82D9C9",
+        },
+      });
+
+      setForm({ nombre: "", tlf: "", email: "" });
+    } catch (error) {
+      // Toast de error
+      toast.error("Error al enviar", {
+        description:
+          error instanceof Error
+            ? error.message
+            : "Ocurrió un error inesperado.",
+        duration: 5000,
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
-    <section className="w-full bg-[#0a0a0a]/60 py-20 px-4 sm:px-6 lg:px-8 flex flex-col items-center justify-center">
+    <section className="w-full bg-[#0a0a0a]/60 py-10 px-4 sm:px-6 lg:px-8 flex flex-col items-center justify-center">
       {/* Contenedor principal: en móvil es columna, en md+ pasa a fila */}
       <div className="w-full max-w-5xl flex flex-col md:flex-row items-center justify-between gap-10 lg:gap-16">
         {/* BLOQUE IZQUIERDO: Título y sobre/icono */}
@@ -49,7 +87,7 @@ export default function CotizaForm() {
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="w-full md:w-1/2 bg-[#133D35] p-6 sm:p-8 rounded-2xl shadow-2xl border border-[#82D9C9]/30"
+          className="w-full md:w-1/2 xl:w-full xl:h-[500px] bg-[#133D35] flex flex-col justify-center px-8 py-6 sm:p-8 xl:px-20 rounded-2xl shadow-2xl border border-[#82D9C9]/30"
         >
           <form onSubmit={handleSubmit} className="flex flex-col gap-5">
             {/* Campo NOMBRE */}
@@ -93,9 +131,10 @@ export default function CotizaForm() {
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
               type="submit"
-              className="w-full bg-[#34C759] hover:bg-[#2eb04f] text-white font-bebas text-xl sm:text-2xl tracking-wider py-3.5 rounded-full shadow-lg transition-colors cursor-pointer mt-2"
+              disabled={isSubmitting}
+              className="w-full bg-[#34C759] hover:bg-[#2eb04f] text-white font-bebas text-xl sm:text-2xl tracking-wider py-3.5 rounded-full shadow-lg transition-colors cursor-pointer mt-2 disabled:opacity-50"
             >
-              ENVIAR
+              {isSubmitting ? "ENVIANDO..." : "ENVIAR"}
             </motion.button>
           </form>
         </motion.div>

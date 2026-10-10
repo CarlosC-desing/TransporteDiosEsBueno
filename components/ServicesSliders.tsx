@@ -3,35 +3,34 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
-import { ChevronLeft, ChevronRight } from "lucide-react"; // O puedes usar tus propios iconos o SVG
+import { ChevronLeft, ChevronRight } from "lucide-react";
 
-// Definimos las diapositivas con sus títulos y rutas de imagen de ejemplo
 const slides = [
   {
     id: 1,
     title: "TRANSPORTE DE ELECTRODOMESTICOS",
-    image: "/appliances.png", // Reemplaza con tu ruta de imagen real
+    image: "/appliances.png",
   },
   {
     id: 2,
     title: "TRANSPORTE DE MERCANCIA EMBALADA O EMPAQUETADA",
-    image: "/boxes.png", // Reemplaza con tu ruta de imagen real
+    image: "/boxes.png",
   },
   {
     id: 3,
     title: "TRANSPORTE DE CUALQUIER MERCANCIA O MATERIAL",
-    image: "/boxes1.png", // Reemplaza con tu ruta de imagen real
+    image: "/boxes1.png",
   },
   {
     id: 4,
     title: "TRANSPORTE DE ALIMENTOS NO PERECEDEROS",
-    image: "/food.png", // Reemplaza con tu ruta de imagen real
+    image: "/food.png",
   },
 ];
 
 export default function ServiceSlider() {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [direction, setDirection] = useState(0); // Para saber si va a izq o der
+  const [direction, setDirection] = useState(0);
 
   const handlePrev = () => {
     setDirection(-1);
@@ -48,7 +47,6 @@ export default function ServiceSlider() {
     setCurrentIndex(index);
   };
 
-  // Variantes para la animación de entrada y salida de las diapositivas
   const slideVariants = {
     enter: (direction: number) => ({
       x: direction > 0 ? 100 : -100,
@@ -66,7 +64,6 @@ export default function ServiceSlider() {
 
   return (
     <section className="w-full bg-[#0a0a0a]/60 py-16 px-4 relative overflow-hidden flex flex-col items-center rounded-2xl">
-      {/* Contenedor principal del Slider */}
       <div className="relative w-full max-w-[1200px] min-h-[450px] sm:min-h-[500px] flex flex-col items-center justify-center">
         {/* --- FLECHA IZQUIERDA --- */}
         <motion.button
@@ -82,7 +79,6 @@ export default function ServiceSlider() {
           <ChevronLeft className="w-8 h-8 sm:w-12 sm:h-12" />
         </motion.button>
 
-        {/* --- CONTENIDO CENTRAL (Animado con Framer Motion) --- */}
         <div className="w-full max-w-[900px] px-12 sm:px-16 flex flex-col items-center overflow-hidden">
           <AnimatePresence mode="wait" custom={direction}>
             <motion.div
@@ -95,17 +91,16 @@ export default function ServiceSlider() {
               transition={{ duration: 0.4, ease: "easeInOut" }}
               className="w-full flex flex-col items-center text-center"
             >
-              {/* TÍTULO DEL SLIDE (Igual al de la referencia) */}
               <h2 className="font-bebas text-mint-primary text-2xl sm:text-4xl md:text-[38px] tracking-wide uppercase mb-6 sm:mb-8 select-none">
                 {slides[currentIndex].title}
               </h2>
 
-              {/* CONTENEDOR DE LA IMAGEN */}
               <div className="relative w-full h-[280px] sm:h-[380px] md:h-[420px] rounded-xl overflow-hidden shadow-2xl">
                 <Image
                   src={slides[currentIndex].image}
                   alt={slides[currentIndex].title}
                   fill
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 900px"
                   className="object-contain object-center"
                   priority
                 />
@@ -114,7 +109,6 @@ export default function ServiceSlider() {
           </AnimatePresence>
         </div>
 
-        {/* --- FLECHA DERECHA --- */}
         <motion.button
           onClick={handleNext}
           whileHover={{
@@ -129,7 +123,6 @@ export default function ServiceSlider() {
         </motion.button>
       </div>
 
-      {/* --- PUNTITOS INDICADORES DE POSICIÓN --- */}
       <div className="flex items-center justify-center gap-3 mt-8 z-30">
         {slides.map((_, index) => {
           const isActive = index === currentIndex;
@@ -137,7 +130,6 @@ export default function ServiceSlider() {
             <motion.button
               key={index}
               onClick={() => handleDotClick(index)}
-              // Microinteracción al pasar el mouse y al hacer clic
               whileHover={{ scale: 1.3 }}
               whileTap={{ scale: 0.8 }}
               animate={{
