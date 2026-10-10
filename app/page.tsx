@@ -16,7 +16,7 @@ export default function Home() {
           <div className="w-full lg:w-1/2 flex flex-col items-center lg:items-start gap-10 z-20 space-y-6">
             <div className="w-full max-w-[340px] sm:max-w-[420px] lg:max-w-[500px] self-center">
               <Image
-                src="/transport_god_is_good.svg"
+                src="/Transport_God_is_good.svg"
                 alt="Transportes Dios Es Bueno"
                 width={500}
                 height={300}

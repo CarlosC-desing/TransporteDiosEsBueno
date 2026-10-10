@@ -21,7 +21,7 @@ export default function Navbar() {
       <nav className="w-full max-w-[1850px] h-[50px] md:h-[80px] bg-[#D9D9D9]/95 backdrop-blur-md rounded-full px-6 md:px-12 flex items-center justify-between shadow-xl">
         <Link href="/" className="flex items-center gap-2">
           <Image
-            src="/logo.png"
+            src="/Logo.png"
             alt="Logo de la empresa"
             width={150}
             height={50}
