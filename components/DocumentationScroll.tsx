@@ -41,9 +41,9 @@ export default function DocumentacionHover() {
         transition={{ duration: 0.6 }}
         className="w-full max-w-5xl text-center lg:text-left mb-12 sm:mb-16"
       >
-        <h2 className="font-bebas text-white/90 text-2xl sm:text-3xl md:text-4xl tracking-wider select-none leading-snug">
+        <h3 className="font-bebas text-white/90 text-2xl sm:text-3xl md:text-4xl tracking-wider select-none leading-snug">
           APARTE DE LA DOCUMENTACIÓN OBLIGATORIA, LOS CAMIONES CUENTAN CON:
-        </h2>
+        </h3>
       </motion.div>
 
       {/* CONTENEDOR DE ELEMENTOS */}

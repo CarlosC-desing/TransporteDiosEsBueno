@@ -8,6 +8,12 @@ import QuoteForm from "@/components/QuoteForm";
 export default function Home() {
   return (
     <div className="flex flex-col">
+      {/* h1 Accesible para SEO (invisible para usuarios, visible para buscadores) */}
+      <h1 className="sr-only">
+        Transportes Dios Es Bueno - Carga Pesada, Fletes y Mudanzas Nacionales
+        en Valencia
+      </h1>
+
       <section
         id="inicio"
         className="w-full min-h-screen flex flex-col justify-center items-center pb-12 gap-12 overflow-hidden px-7 md:px-12"
@@ -171,7 +177,7 @@ export default function Home() {
               </li>
               <li>
                 <a
-                  href="mailto:caigcada2303@gmail.com"
+                  href="mailto:2024diosesbueno@gmail.com"
                   className="transition-all duration-300 hover:text-mint-light hover:drop-shadow-[0_0_8px_rgba(34,197,94,0.6)] break-all"
                 >
                   2024diosesbueno@gmail.com
@@ -208,9 +214,11 @@ export default function Home() {
                 className="transition-transform duration-300 hover:scale-110 hover:drop-shadow-[0_0_10px_rgba(34,197,94,0.8)]"
                 aria-label="Facebook"
               >
-                <img
+                <Image
                   src="/facebook_logo.png"
-                  alt="Facebook"
+                  alt="Facebook Transportes Dios Es Bueno"
+                  width={75}
+                  height={75}
                   className="w-[50px] h-[50px] xl:w-[75px] xl:h-[75px] object-contain"
                 />
               </a>
@@ -222,9 +230,11 @@ export default function Home() {
                 className="transition-transform duration-300 hover:scale-110 hover:drop-shadow-[0_0_10px_rgba(34,197,94,0.8)]"
                 aria-label="Instagram"
               >
-                <img
+                <Image
                   src="/instagram_logo.png"
-                  alt="Instagram"
+                  alt="Instagram Transportes Dios Es Bueno"
+                  width={100}
+                  height={100}
                   className="w-[70px] h-[70px] xl:w-[100px] xl:h-[100px] object-contain"
                 />
               </a>

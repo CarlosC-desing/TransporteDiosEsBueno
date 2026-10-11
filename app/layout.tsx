@@ -25,25 +25,42 @@ const montserrat = Montserrat({
 });
 
 export const metadata: Metadata = {
-  title: "Transportes Dios es bueno | Valencia | Envios Nacionales",
+  title:
+    "Transportes Dios es Bueno | Carga Pesada y Envíos Nacionales en Valencia",
   description:
-    "Descripción persuasiva de entre 150 y 160 caracteres optimizada para Google y conversiones.",
-  metadataBase: new URL("https://tu-dominio.com"),
+    "Servicio profesional de transporte de carga pesada, fletes y mudanzas en Valencia y a nivel nacional. Camiones con cavas de 50m³ y capacidad de 10 Toneladas.",
+  metadataBase: new URL("https://diosesbuenotransporte.com"),
+  keywords: [
+    "Transportes Dios es Bueno",
+    "transporte de carga Valencia",
+    "fletes Valencia",
+    "mudanzas Valencia",
+    "camiones de carga pesada",
+    "envios nacionales venezuela",
+  ],
   openGraph: {
-    title: "Transportes Dios es bueno",
-    description: "Descripción persuasiva para redes sociales.",
-    url: "https://tu-dominio.com",
-    siteName: "Dios es bueno",
+    title: "Transportes Dios es Bueno | Carga Pesada y Mudanzas",
+    description:
+      "Servicio profesional de transporte de carga pesada y mudanzas a nivel nacional con cavas de 50m³.",
+    url: "https://diosesbuenotransporte.com",
+    siteName: "Transportes Dios es Bueno 2024 C.A.",
     images: [
       {
         url: "/og-image.png",
         width: 1200,
         height: 630,
-        alt: "Vista previa de la web",
+        alt: "Transportes Dios es Bueno - Carga Pesada y Mudanzas",
       },
     ],
-    locale: "es_ES",
+    locale: "es_VE",
     type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Transportes Dios es Bueno | Carga Pesada y Mudanzas",
+    description:
+      "Servicio profesional de transporte de carga pesada y mudanzas a nivel nacional.",
+    images: ["/og-image.png"],
   },
   robots: {
     index: true,

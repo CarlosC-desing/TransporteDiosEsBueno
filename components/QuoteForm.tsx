@@ -68,12 +68,12 @@ export default function QuoteForm() {
           className="flex flex-col items-center md:items-start text-center md:text-left w-full md:w-1/2"
         >
           {/* TÍTULO */}
-          <h2 className="font-bebas text-white text-3xl sm:text-5xl lg:text-6xl tracking-wide leading-none select-none mb-2">
+          <h3 className="font-bebas text-white text-3xl sm:text-5xl lg:text-6xl tracking-wide leading-none select-none mb-2">
             COTIZA CON
-          </h2>
-          <h2 className="font-bebas text-[#82D9C9] text-3xl sm:text-5xl lg:text-6xl tracking-wide leading-none select-none mb-8 md:mb-12 underline decoration-2 underline-offset-8">
+          </h3>
+          <h3 className="font-bebas text-[#82D9C9] text-3xl sm:text-5xl lg:text-6xl tracking-wide leading-none select-none mb-8 md:mb-12 underline decoration-2 underline-offset-8">
             NOSOTROS
-          </h2>
+          </h3>
 
           {/* ICONO DE SOBRE / CORREO */}
           <div className="w-32 h-24 sm:w-40 sm:h-28 bg-[#82D9C9]/20 border-2 border-[#82D9C9] rounded-xl flex items-center justify-center shadow-lg">
