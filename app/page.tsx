@@ -8,7 +8,6 @@ import QuoteForm from "@/components/QuoteForm";
 export default function Home() {
   return (
     <div className="flex flex-col">
-      {/* h1 Accesible para SEO (invisible para usuarios, visible para buscadores) */}
       <h1 className="sr-only">
         Transportes Dios Es Bueno - Carga Pesada, Fletes y Mudanzas Nacionales
         en Valencia

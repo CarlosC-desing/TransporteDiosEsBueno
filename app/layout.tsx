@@ -29,7 +29,7 @@ export const metadata: Metadata = {
     "Transportes Dios es Bueno | Carga Pesada y Envíos Nacionales en Valencia",
   description:
     "Servicio profesional de transporte de carga pesada, fletes y mudanzas en Valencia y a nivel nacional. Camiones con cavas de 50m³ y capacidad de 10 Toneladas.",
-  metadataBase: new URL("https://diosesbuenotransporte.com"),
+  metadataBase: new URL("https://transporte-dios-es-bueno.vercel.app"),
   keywords: [
     "Transportes Dios es Bueno",
     "transporte de carga Valencia",
@@ -42,7 +42,7 @@ export const metadata: Metadata = {
     title: "Transportes Dios es Bueno | Carga Pesada y Mudanzas",
     description:
       "Servicio profesional de transporte de carga pesada y mudanzas a nivel nacional con cavas de 50m³.",
-    url: "https://diosesbuenotransporte.com",
+    url: "https://transporte-dios-es-bueno.vercel.app",
     siteName: "Transportes Dios es Bueno 2024 C.A.",
     images: [
       {
