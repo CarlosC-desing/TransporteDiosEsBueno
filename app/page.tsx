@@ -160,7 +160,7 @@ export default function Home() {
             <ul className="flex flex-col gap-1 text-center md:text-left">
               <li>
                 <a
-                  href="tel:04144319572"
+                  href="tel:+584144319572"
                   className="transition-all duration-300 hover:text-mint-light hover:drop-shadow-[0_0_8px_rgba(34,197,94,0.6)]"
                 >
                   0414-431.95.72
@@ -168,7 +168,7 @@ export default function Home() {
               </li>
               <li>
                 <a
-                  href="tel:04129559144"
+                  href="tel:+584129559144"
                   className="transition-all duration-300 hover:text-mint-light hover:drop-shadow-[0_0_8px_rgba(34,197,94,0.6)]"
                 >
                   0412-955.91.44
