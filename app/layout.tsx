@@ -32,11 +32,12 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://transporte-dios-es-bueno.vercel.app"),
   keywords: [
     "Transportes Dios es Bueno",
-    "transporte de carga Valencia",
-    "fletes Valencia",
-    "mudanzas Valencia",
-    "camiones de carga pesada",
-    "envios nacionales venezuela",
+    "transporte de carga venezuela",
+    "envios nacionales e internacionales venezuela",
+    "fletes valencia",
+    "mudanzas valencia",
+    "transporte internacional venezuela",
+    "camiones de carga valencia",
   ],
   openGraph: {
     title: "Transportes Dios es Bueno | Carga Pesada y Mudanzas",

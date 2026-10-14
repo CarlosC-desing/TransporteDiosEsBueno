@@ -207,7 +207,7 @@ export default function Home() {
             </p>
             <div className="flex justify-center gap-4 items-center">
               <a
-                href="https://facebook.com"
+                href="https://www.facebook.com/profile.php?id=61595233355565"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="transition-transform duration-300 hover:scale-110 hover:drop-shadow-[0_0_10px_rgba(34,197,94,0.8)]"
@@ -223,7 +223,7 @@ export default function Home() {
               </a>
 
               <a
-                href="https://instagram.com"
+                href="https://www.instagram.com/transportediosesbueno/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="transition-transform duration-300 hover:scale-110 hover:drop-shadow-[0_0_10px_rgba(34,197,94,0.8)]"
