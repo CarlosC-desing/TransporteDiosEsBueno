@@ -10,6 +10,7 @@ export default function QuoteForm() {
     nombre: "",
     tlf: "",
     email: "",
+    descripcion: "",
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
 
@@ -40,7 +41,7 @@ export default function QuoteForm() {
         },
       });
 
-      setForm({ nombre: "", tlf: "", email: "" });
+      setForm({ nombre: "", tlf: "", email: "", descripcion: "" });
     } catch (error) {
       // Toast de error
       toast.error("Error al enviar", {
@@ -124,6 +125,24 @@ export default function QuoteForm() {
                 className="w-full bg-[#82D9C9] text-[#0a0a0a] placeholder-[#0a0a0a]/70 font-bebas text-lg sm:text-xl py-3 px-5 rounded-full outline-none focus:ring-2 focus:ring-white transition-all shadow-inner"
                 required
               />
+            </div>
+
+            {/* Campo DESCRIPCIÓN */}
+            <div>
+              <textarea
+                placeholder="DESCRIPCIÓN (OPCIONAL)"
+                value={form.descripcion}
+                onChange={(e) =>
+                  setForm({ ...form, descripcion: e.target.value })
+                }
+                maxLength={160}
+                rows={3}
+                aria-label="Descripción de la cotización, máximo 160 caracteres"
+                className="w-full resize-none bg-[#82D9C9] text-[#0a0a0a] placeholder-[#0a0a0a]/70 font-bebas text-lg sm:text-xl py-3 px-5 rounded-2xl outline-none focus:ring-2 focus:ring-white transition-all shadow-inner"
+              />
+              <p className="mt-1 text-right text-sm text-white/80">
+                {form.descripcion.length}/160
+              </p>
             </div>
 
             {/* Botón ENVIAR */}

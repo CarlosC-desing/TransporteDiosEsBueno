@@ -4,6 +4,7 @@ type QuoteRequestBody = {
   nombre: string;
   tlf: string;
   email: string;
+  descripcion?: string;
 };
 
 function isQuoteRequestBody(value: unknown): value is QuoteRequestBody {
@@ -15,8 +16,22 @@ function isQuoteRequestBody(value: unknown): value is QuoteRequestBody {
   return (
     typeof body.nombre === "string" &&
     typeof body.tlf === "string" &&
-    typeof body.email === "string"
+    typeof body.email === "string" &&
+    (body.descripcion === undefined || typeof body.descripcion === "string")
   );
+}
+
+function escapeHtml(value: string) {
+  return value.replace(/[&<>"']/g, (character) => {
+    const entities: Record<string, string> = {
+      "&": "&amp;",
+      "<": "&lt;",
+      ">": "&gt;",
+      '"': "&quot;",
+      "'": "&#39;",
+    };
+    return entities[character];
+  });
 }
 
 export async function POST(request: Request) {
@@ -41,10 +56,18 @@ export async function POST(request: Request) {
   const nombre = body.nombre.trim();
   const tlf = body.tlf.trim();
   const email = body.email.trim();
+  const descripcion = body.descripcion?.trim() ?? "";
 
   if (!nombre || !tlf || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
     return Response.json(
       { error: "El nombre, teléfono o correo electrónico no son válidos." },
+      { status: 400 },
+    );
+  }
+
+  if (body.descripcion !== undefined && body.descripcion.length > 160) {
+    return Response.json(
+      { error: "La descripción no puede superar los 160 caracteres." },
       { status: 400 },
     );
   }
@@ -58,6 +81,11 @@ export async function POST(request: Request) {
     );
   }
 
+  const nombreHtml = escapeHtml(nombre);
+  const tlfHtml = escapeHtml(tlf);
+  const emailHtml = escapeHtml(email);
+  const descripcionHtml = escapeHtml(descripcion || "Sin descripción");
+
   const resend = new Resend(apiKey);
   try {
     const { error } = await resend.emails.send({
@@ -66,7 +94,7 @@ export async function POST(request: Request) {
       to: ["2024diosesbueno@gmail.com"],
       replyTo: email,
       subject: `🚚 Nueva Solicitud de Cotización - ${nombre}`,
-      text: `Nueva solicitud de cotización\n\nNombre: ${nombre}\nTeléfono: ${tlf}\nCorreo electrónico: ${email}`,
+      text: `Nueva solicitud de cotización\n\nNombre: ${nombre}\nTeléfono: ${tlf}\nCorreo electrónico: ${email}\nDescripción: ${descripcion || "Sin descripción"}`,
       html: `
         <!DOCTYPE html>
         <html lang="es">
@@ -98,19 +126,23 @@ export async function POST(request: Request) {
                             <table border="0" cellpadding="0" cellspacing="0" width="100%">
                               <tr>
                                 <td style="padding: 10px 0; border-bottom: 1px solid #e4e4e7; font-size: 15px; color: #71717a; width: 35%;"><strong>Nombre:</strong></td>
-                                <td style="padding: 10px 0; border-bottom: 1px solid #e4e4e7; font-size: 16px; color: #18181b;">${nombre}</td>
+                                <td style="padding: 10px 0; border-bottom: 1px solid #e4e4e7; font-size: 16px; color: #18181b;">${nombreHtml}</td>
                               </tr>
                               <tr>
                                 <td style="padding: 10px 0; border-bottom: 1px solid #e4e4e7; font-size: 15px; color: #71717a;"><strong>Teléfono:</strong></td>
                                 <td style="padding: 10px 0; border-bottom: 1px solid #e4e4e7; font-size: 16px; color: #18181b;">
-                                  <a href="tel:${tlf}" style="color: #34C759; text-decoration: none; font-weight: bold;">${tlf}</a>
+                                  <a href="tel:${tlfHtml}" style="color: #34C759; text-decoration: none; font-weight: bold;">${tlfHtml}</a>
                                 </td>
                               </tr>
                               <tr>
                                 <td style="padding: 10px 0; font-size: 15px; color: #71717a;"><strong>Correo:</strong></td>
                                 <td style="padding: 10px 0; font-size: 16px; color: #18181b;">
-                                  <a href="mailto:${email}" style="color: #2563eb; text-decoration: none;">${email}</a>
+                                  <a href="mailto:${emailHtml}" style="color: #2563eb; text-decoration: none;">${emailHtml}</a>
                                 </td>
+                              </tr>
+                              <tr>
+                                <td style="padding: 10px 0; font-size: 15px; color: #71717a; vertical-align: top;"><strong>Descripción:</strong></td>
+                                <td style="padding: 10px 0; font-size: 16px; color: #18181b; white-space: pre-wrap; overflow-wrap: anywhere;">${descripcionHtml}</td>
                               </tr>
                             </table>
                           </td>
