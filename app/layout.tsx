@@ -25,11 +25,14 @@ const montserrat = Montserrat({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://www.diosesbuenotransporte.com"),
+  alternates: {
+    canonical: "/",
+  },
   title:
     "Transportes Dios es Bueno | Carga Pesada y Envíos Nacionales en Valencia",
   description:
     "Servicio profesional de transporte de carga pesada, fletes y mudanzas en Valencia y a nivel nacional. Camiones con cavas de 50m³ y capacidad de 10 Toneladas.",
-  metadataBase: new URL("https://diosesbuenotransporte.com"),
   keywords: [
     "Transportes Dios es Bueno",
     "transporte de carga venezuela",
@@ -43,7 +46,7 @@ export const metadata: Metadata = {
     title: "Transportes Dios es Bueno | Carga Pesada y Mudanzas",
     description:
       "Servicio profesional de transporte de carga pesada y mudanzas a nivel nacional con cavas de 50m³.",
-    url: "https://diosesbuenotransporte.com",
+    url: "https://www.diosesbuenotransporte.com",
     siteName: "Transportes Dios es Bueno 2024 C.A.",
     images: [
       {
