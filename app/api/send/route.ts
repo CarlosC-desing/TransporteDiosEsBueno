@@ -63,7 +63,7 @@ export async function POST(request: Request) {
     const { error } = await resend.emails.send({
       from:
         process.env.RESEND_FROM_EMAIL ?? "Cotizaciones <onboarding@resend.dev>",
-      to: ["caigcada2303@gmail.com"],
+      to: ["2024diosesbueno@gmail.com"],
       replyTo: email,
       subject: `🚚 Nueva Solicitud de Cotización - ${nombre}`,
       text: `Nueva solicitud de cotización\n\nNombre: ${nombre}\nTeléfono: ${tlf}\nCorreo electrónico: ${email}`,
