@@ -42,6 +42,9 @@ export const metadata: Metadata = {
     "transporte internacional venezuela",
     "camiones de carga valencia",
   ],
+  verification: {
+    google: "M143Ke99iKzwxqvfTy-RhWd-0pJaSDPuVjZhvGzLUHE",
+  },
   openGraph: {
     title: "Transportes Dios es Bueno | Carga Pesada y Mudanzas",
     description:
