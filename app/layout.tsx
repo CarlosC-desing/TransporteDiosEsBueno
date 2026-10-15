@@ -41,6 +41,8 @@ export const metadata: Metadata = {
     "mudanzas valencia",
     "transporte internacional venezuela",
     "camiones de carga valencia",
+    "transportes en Valencia",
+    "transportes en valencia Venezuela",
   ],
   verification: {
     google: "M143Ke99iKzwxqvfTy-RhWd-0pJaSDPuVjZhvGzLUHE",
